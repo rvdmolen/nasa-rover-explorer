@@ -16,7 +16,7 @@
 
 <nav class="sticky top-0 z-50 flex items-center flex-wrap bg-orange-900 p-3 shadow-lg  ">
   
-      <a href="/">
+      <a class="md:w-full" href="/">
         <div class='inline-flex items-center p-2 mr-4' >
             <svg
                 viewBox='0 0 24 24'
