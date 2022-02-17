@@ -30,3 +30,26 @@
         {/each}
     </ul>
 </section>
+
+<section>
+  <h1>Blog</h1>
+  <ul>
+      {#each posts as post}
+          <li>
+              <a href={`/blog/${post.id}`}> {post.title}</a>
+          </li>
+      {/each}
+  </ul>
+</section>
+
+
+<section>
+  <h1>Blog</h1>
+  <ul>
+      {#each posts as post}
+          <li>
+              <a href={`/blog/${post.id}`}> {post.title}</a>
+          </li>
+      {/each}
+  </ul>
+</section>

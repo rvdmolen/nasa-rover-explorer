@@ -1,11 +1,14 @@
 <script>
-    import Nav from '$lib/nav.svelte';
-    import '../global.css';
+  import Nav from '$lib/nav/nav.svelte';
+  import Footer from '$lib/footer/footer.svelte';
+  import '../global.css';
 </script>
 
-<Nav/>
-
-<div class="p-8 max-w-6xl mx-auto">
+<div class="flex flex-col h-screen">
+  <div><Nav /></div>
+  <div class="container flex-grow mx-auto px-4 py-4">
     <slot></slot>
-</div>
+  </div>
+  <div><Footer /></div>
+</div> 
 
