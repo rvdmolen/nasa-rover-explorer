@@ -1,37 +1,32 @@
 <script>
+    import {beforeUpdate, onMount} from 'svelte'
+  import { page } from '$app/stores';
   import Nav from '$lib/nav/nav.svelte';
   import Footer from '$lib/footer/footer.svelte';
+  import PageTransitions from '$lib/transition/PageTransitions.svelte';
   import '../global.css';
 
-  let innerHeight;
+  export let key = $page.url.origin // https://github.com/GiorgosK/svelte-page-transitions/issues/2
+  beforeUpdate(() => {
+      key = $page.url.origin
+      console.log(key);
+  })
+
+  export let ready = false;
+  onMount(() => {
+      console.log('loaded');
+      ready = true;
+  })
 </script>
-
-<svelte:window bind:innerHeight />
-
-<!-- <div class="flex flex-col h-screen">
-  <div class="sticky"><Nav /></div>
-  <div class="container flex-grow mx-auto px-4 py-4">
-    <slot></slot>
-  </div>
-  <div><Footer /></div>
-</div>  -->
 
 <Nav />
 
-<div style="min-height: {innerHeight-325}px;" class="container flex-grow mx-auto px-4 py-4">
-  <slot></slot>
-  
-</div>
+{#if (ready)}
+    <PageTransitions refresh={key}>
+        <div class="h-full">
+            <slot />
+        </div>
+    </PageTransitions>
+{/if}
 
-
-<div><Footer /></div>
-
-
-
-<!-- <div class="flex flex-col justify-between h-screen">
-  <div class="sticky fixed"><Nav /></div>
-  <div class="container flex-grow mx-auto px-4 py-4">
-    <slot></slot>
-  </div>
-  <div><Footer /></div>
-</div>  -->
+<Footer />
