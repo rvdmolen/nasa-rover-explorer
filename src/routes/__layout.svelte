@@ -1,5 +1,5 @@
 <script>
-    import {beforeUpdate, onMount} from 'svelte'
+  import {beforeUpdate, onMount} from 'svelte'
   import { page } from '$app/stores';
   import Nav from '$lib/nav/nav.svelte';
   import Footer from '$lib/footer/footer.svelte';
