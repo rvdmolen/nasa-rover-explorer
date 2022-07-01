@@ -1,13 +1,13 @@
 <script>
-    import { fly } from 'svelte/transition';
+    import { fly, fade } from 'svelte/transition';
     export let refresh = '';
 </script>
 
 {#key refresh}
-    <div class="flex-grow px-4 py-4 "
-            in:fly="{{ y: -50, duration: 250, delay: 300 }}"
-            out:fly="{{ y: -50, duration: 250 }}"
-    >
-        <slot/>
+<!--    <div id="transition-container" in:fly="{{ y: -50, duration: 250, delay: 300 }}">-->
+<!--        <slot></slot>-->
+<!--    </div>-->
+    <div id="transition-container" in:fade>
+        <slot></slot>
     </div>
 {/key}

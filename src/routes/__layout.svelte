@@ -1,3 +1,11 @@
+<script context="module">
+    export const load = async ({ url, params }) => ({
+        props: {
+            key: url
+        }
+    });
+</script>
+
 <script>
   import {beforeUpdate, onMount} from 'svelte'
   import { page } from '$app/stores';
@@ -6,10 +14,10 @@
   import PageTransitions from '$lib/transition/PageTransitions.svelte';
   import '../global.css';
 
-  export let key = $page.url.origin // https://github.com/GiorgosK/svelte-page-transitions/issues/2
+  export let key = $page.url.pathname // https://github.com/GiorgosK/svelte-page-transitions/issues/2
   beforeUpdate(() => {
-      key = $page.url.origin
-      console.log(key);
+      key = $page.url.pathname
+      console.log(`Key ${key}`);
   })
 
   export let ready = false;
@@ -21,12 +29,17 @@
 
 <Nav />
 
-{#if (ready)}
+<!--{#if (ready)}-->
+<!--    <PageTransitions refresh={key}>-->
+<!--        <div class="h-full">-->
+<!--            <slot />-->
+<!--        </div>-->
+<!--    </PageTransitions>-->
+<!--{/if}-->
+<div class="h-full">
     <PageTransitions refresh={key}>
-        <div class="h-full">
-            <slot />
-        </div>
+        <slot />
     </PageTransitions>
-{/if}
+</div>
 
 <Footer />
