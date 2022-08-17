@@ -36,7 +36,7 @@
 <!--        </div>-->
 <!--    </PageTransitions>-->
 <!--{/if}-->
-<div class="h-full">
+<div class="grow">
     <PageTransitions refresh={key}>
         <slot />
     </PageTransitions>
