@@ -1,5 +1,6 @@
-export const load = async ({ params }) => {
-    
+
+/** @type {import('./$types').PageLoad} */
+export const load = async ({ params }) => {   
     const response = await fetch(
         `https://dev.to/api/articles/${params.slug}`
     )
