@@ -3,8 +3,9 @@
     export let refresh = '';
 </script>
 
+
 {#key refresh}
-    <div id="transition-container" in:fade>
-        <slot></slot>
+    <div class="transition-container flex-grow  flex" id="transition-container" in:fade>
+       <slot></slot>
     </div>
 {/key}

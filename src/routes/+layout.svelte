@@ -2,6 +2,7 @@
   import {beforeUpdate, onMount} from 'svelte'
   import { page } from '$app/stores';
   import Nav from '$lib/nav/nav.svelte';
+  import Banner from '$lib/banner/banner.svelte';
   import Footer from '$lib/footer/footer.svelte';
   import PageTransitions from '$lib/transition/PageTransitions.svelte';
   import '../app.css';
@@ -11,7 +12,7 @@
   beforeUpdate(() => {
       key = $page.url.pathname
       console.log(`Key ${key}`);
-      
+
   })
 
   export let ready = false;
@@ -21,12 +22,19 @@
   })
 </script>
 
-<Nav />
 
-<div class="grow">
+<div>
+    <Nav />
+    <Banner />
+</div>
+
+<div class="grow flex flex-col">
     <PageTransitions refresh={key}>
         <slot />
     </PageTransitions>
 </div>
 
-<Footer />
+<div>
+    <Footer />
+</div>
+

@@ -3,16 +3,28 @@ export const MenuItems = [
     title: 'Home',
     link: '/'
   },
+  // {
+  //   title: 'Blog',
+  //   link: '/blog'
+  // },
+  // {
+  //   title: 'About us',
+  //   link: '/about'
+  // },
+  // {
+  //   title: 'Contact us',
+  //   link: '/contact'
+  // },
   {
-    title: 'Blog',
-    link: '/blog'
+    title: 'Curiosity',
+    link: '/curiosity'
   },
   {
-    title: 'About us',
-    link: '/about'
+    title: 'Opportunity',
+    link: '/oppurtunity'
   },
   {
-    title: 'Contact us',
-    link: '/contact'
+    title: 'Spirit',
+    link: '/spirit'
   }
 ]
