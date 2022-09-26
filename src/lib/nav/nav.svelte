@@ -2,15 +2,15 @@
 	import { slide } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
 	import NavItems from './nav_items.svelte';
+  import AnimatedHamburger from '$lib/hamburger/hamburger.svelte';
 
 	export let active = false;
-
-	const setMenuState = () => {
-		active = !active;
-	};
-
 	const menuClicked = () => {
 		active = false;
+	};
+
+  const setMenuState = () => {
+		active = !active;
 	};
 </script>
 
@@ -40,25 +40,7 @@
 		</div>
 	</a>
 
-	<button
-		class="inline-flex p-3 hover:bg-white rounded md:hidden text-white ml-auto hover:text-black outline-none"
-		on:click={setMenuState}
-	>
-		<svg
-			class="w-6 h-6"
-			fill="none"
-			stroke="currentColor"
-			viewBox="0 0 24 24"
-			xmlns="http://www.w3.org/2000/svg"
-		>
-			<path
-				strokeLinecap="round"
-				strokeLinejoin="round"
-				strokeWidth={2}
-				d="M4 6h16M4 12h16M4 18h16"
-			/>
-		</svg>
-	</button>
+  <AnimatedHamburger on:hamburgerclick={setMenuState} />
 
 	{#if active}
 		<div class="w-full" transition:slide={{ delay: 250, duration: 300, easing: quintOut }}>
