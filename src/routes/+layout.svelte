@@ -11,8 +11,6 @@
   export let key = $page.url.pathname // https://github.com/GiorgosK/svelte-page-transitions/issues/2
   beforeUpdate(() => {
       key = $page.url.pathname
-      console.log(`Key ${key}`);
-
   })
 
   export let ready = false;

@@ -17,14 +17,14 @@ export const MenuItems = [
   // },
   {
     title: 'Curiosity',
-    link: '/curiosity'
+    link: '/rovers/curiosity'
   },
   {
     title: 'Opportunity',
-    link: '/oppurtunity'
+    link: '/rovers/opportunity'
   },
   {
     title: 'Spirit',
-    link: '/spirit'
+    link: '/rovers/spirit'
   }
 ]
