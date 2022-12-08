@@ -1,12 +1,9 @@
 <script>
   import ToggleButton from '$lib/toggle-button/toggle-button.svelte';
   import { selectedCameraStore } from "../../../stores/selected-camera.store.js";
-  import { page } from "$app/stores";
-
-  $: rover = $page.params.roverId || '';
 
   function setCamera(camera) {
-    selectedCameraStore.setCamera(rover, camera);
+    selectedCameraStore.setCamera(camera);
   }
 </script>
 

@@ -1,29 +1,12 @@
-import { writable } from "svelte/store";
+import { derived } from "svelte/store";
+import { apiService } from "../services/api.service.js";
+import { selectedCameraStore } from "./selected-camera.store.js";
+import { selectedRoverStore } from "./selected-rover.store.js";
 
 function createPhotoStore() {
-  const store = writable(undefined);
-  const { subscribe, set } = store;
-
-  function load(rover, camera) {
-    set(undefined);
-
-
-    fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?earth_date=2022-12-5&camera=${camera}&api_key=T6TA2IoZfucUrdZJAxgfMNiAixi017pgbx4rtrAs`)
-      .then((data) => data.json())
-      .then(({ photos }) => {
-        set(photos || []);
-      })
-      .catch(rejected => {
-        console.log(rejected);
-      });
-
-  }
-
-  return {
-    subscribe,
-    set,
-    load
-  };
+  return derived([selectedCameraStore, selectedRoverStore], async ([selectedCamera, selectedRover]) => {
+    return await apiService.fetchPhotos(selectedRover, selectedCamera);
+  });
 }
 
 export const photoStore = createPhotoStore();
