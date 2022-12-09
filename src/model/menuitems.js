@@ -1,18 +1,30 @@
-export const MENU_ITEMS = [
+export const MenuItems = [
   {
     title: 'Home',
     link: '/'
   },
+  // {
+  //   title: 'Blog',
+  //   link: '/blog'
+  // },
+  // {
+  //   title: 'About us',
+  //   link: '/about'
+  // },
+  // {
+  //   title: 'Contact us',
+  //   link: '/contact'
+  // },
   {
-    title: 'Blog',
-    link: '/blog'
+    title: 'Curiosity',
+    link: '/rovers/curiosity'
   },
   {
-    title: 'About us',
-    link: '/about'
+    title: 'Opportunity',
+    link: '/rovers/opportunity'
   },
   {
-    title: 'Contact us',
-    link: '/contact'
+    title: 'Spirit',
+    link: '/rovers/spirit'
   }
 ]

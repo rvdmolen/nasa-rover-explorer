@@ -2,31 +2,36 @@
   import {beforeUpdate, onMount} from 'svelte'
   import { page } from '$app/stores';
   import Nav from '$lib/nav/nav.svelte';
+  import Banner from '$lib/banner/banner.svelte';
   import Footer from '$lib/footer/footer.svelte';
   import PageTransitions from '$lib/transition/PageTransitions.svelte';
-  import '../global.css';
+  import '../app.css';
 
-  export let key = $page.url.origin // https://github.com/GiorgosK/svelte-page-transitions/issues/2
+
+  export let key = $page.url.pathname // https://github.com/GiorgosK/svelte-page-transitions/issues/2
   beforeUpdate(() => {
-      key = $page.url.origin
-      console.log(key);
+      key = $page.url.pathname
   })
 
   export let ready = false;
   onMount(() => {
-      console.log('loaded');
       ready = true;
   })
 </script>
 
-<Nav />
 
-{#if (ready)}
+<div>
+    <Nav />
+    <Banner />
+</div>
+
+<div class="grow flex flex-col">
     <PageTransitions refresh={key}>
-        <div class="h-full">
-            <slot />
-        </div>
+        <slot />
     </PageTransitions>
-{/if}
+</div>
 
-<Footer />
+<div>
+    <Footer />
+</div>
+
