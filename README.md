@@ -1,6 +1,16 @@
-# create-svelte
+#  Nasa rover explore
+This project show the photo's rovers running around on Mars! API used is https://api.nasa.gov/.
+
+Project is build with Svelte and TailwindCSS.
+
+
+![alt text](screenshot.png)
+
+
+## Svelte 
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
+
 
 ## Creating a project
 
