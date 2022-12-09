@@ -15,7 +15,6 @@
 
   export let ready = false;
   onMount(() => {
-      console.log('loaded');
       ready = true;
   })
 </script>

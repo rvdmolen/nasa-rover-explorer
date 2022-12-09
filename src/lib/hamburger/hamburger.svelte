@@ -2,14 +2,19 @@
   import { createEventDispatcher } from 'svelte';
   import { Events } from '../../model/events.js';
 
-  export let open = false;
-  export let ariaLabel = 'toggle menu'
+  export let active;
+
+  let open = false;
+  let ariaLabel = 'toggle menu'
 
   const dispatch = createEventDispatcher();
   const setMenuState = () => {
-		open = !open;
     dispatch(Events.HAMBURGER_CLICKED)
 	};
+
+  $: if (active !== undefined) {
+    open = active;
+  }
 
 </script>
 

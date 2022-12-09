@@ -40,12 +40,12 @@
 		</div>
 	</a>
 
-  <AnimatedHamburger on:hamburgerclick={setMenuState} />
+  <AnimatedHamburger on:hamburgerclick={setMenuState} active="{active}" />
 
 	{#if active}
 		<div class="w-full" transition:slide={{ delay: 250, duration: 300, easing: quintOut }}>
 			<div class="w-full items-start flex flex-col">
-				<NavItems on:menuclick={menuClicked} />
+				<NavItems on:menuclick={menuClicked}  />
 			</div>
 		</div>
 	{/if}

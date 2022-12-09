@@ -1,17 +1,25 @@
 <script>
   import { page } from "$app/stores";
+  import ImageLoader from '$lib/image-loader/image-loader.svelte';
+  import dayjs from "dayjs";
 
   export let photo;
   $: rover = $page.params.roverId || '';
+
+  function formatDate(date) {
+    return dayjs(date).format('MMM D, YYYY')
+  }
 </script>
 
-<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-  <img class="w-full" src="{photo.img_src}" alt="Mountain">
+<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white" >
+  <ImageLoader src={photo.img_src} alt="Example image"></ImageLoader>
   <div class="px-6 py-4">
     <div class="font-bold text-xl mb-2">{photo.camera.full_name}</div>
     <p class="text-gray-700 text-base">
-      {photo.camera.name}
-      Photo is taken on {photo.earth_date}
+      Photo is taken on
+    </p>
+    <p>
+      {formatDate(photo.earth_date)}
     </p>
   </div>
   <div class="px-6 pt-4 pb-2">
