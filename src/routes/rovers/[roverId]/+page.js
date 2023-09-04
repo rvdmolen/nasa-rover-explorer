@@ -4,6 +4,7 @@ import { selectedRoverStore } from "../../../stores/selected-rover.store.js";
 export async function load({params}) {
   const rover = params.roverId || '';
   if (rover !== '') {
+    console.log('set rover: ' + rover);
     selectedRoverStore.setSelectedRover(rover);
   }
 }

@@ -30,11 +30,12 @@
     font-size: 16px;
     background-color: #666;
     color: #fff;
-    border-radius: 5px;
+    border-radius: 25px;
     box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
     cursor: pointer;
     outline: none;
     transition: 0.2s all;
+    /*min-width: 150px;*/
   }
 
   /* Style the active class (and buttons on mouse-over) */
